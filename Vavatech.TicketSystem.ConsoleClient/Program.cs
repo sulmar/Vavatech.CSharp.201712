@@ -14,6 +14,8 @@ namespace Vavatech.TicketSystem.ConsoleClient
 
         static void Main(string[] args)
         {
+            IList<User> users = new List<User>();
+
             var developer1 = new Developer("Marcin", "Sulecki");
 
             var developerInfo = new { FirstName = developer1.FirstName, Salary = developer1.AmountPerHour };

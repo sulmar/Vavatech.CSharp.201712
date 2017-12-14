@@ -20,5 +20,6 @@ namespace Vavatech.TicketSystem.Logic
             return totalAmount;
 
         }
+
     }
 }

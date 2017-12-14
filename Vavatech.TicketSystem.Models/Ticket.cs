@@ -8,6 +8,8 @@ namespace Vavatech.TicketSystem.Models
 {
     public class Ticket : Base
     {
+        #region Properties
+
         public string Subject { get; set; }
 
         public string Description { get; set; }
@@ -39,12 +41,11 @@ namespace Vavatech.TicketSystem.Models
             }
         }
 
+        #endregion
 
-        public void Display()
-        {
-            Console.WriteLine($"Subject: {Subject} - {Description}");
-        }
+        #region  Constructor
 
+        
         public Ticket(string subject, string description, User author)
             : this()
         {
@@ -58,6 +59,18 @@ namespace Vavatech.TicketSystem.Models
             this.CreateDate = DateTime.Now;
             this.Status = TicketStatus.Created;
         }
+
+        #endregion
+
+        #region Methods
+
+        public void Display()
+        {
+            Console.WriteLine($"Subject: {Subject} - {Description}");
+        }
+
+        #endregion
+
 
     }
 }

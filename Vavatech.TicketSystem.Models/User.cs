@@ -25,6 +25,15 @@ namespace Vavatech.TicketSystem.Models
 
         public string LastName { get; set; }
 
+        public string FullName
+        {
+            get
+            {
+                return $"{FirstName} {LastName}";
+            }
+        }
+
+
         // back field
         private string pesel;
 

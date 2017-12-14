@@ -79,5 +79,10 @@ namespace Vavatech.TicketSystem.Models
             this.LastName = lastName;
         }
 
+        public override string ToString()
+        {
+            return this.FullName;
+        }
+
     }
 }

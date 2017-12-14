@@ -72,5 +72,10 @@ namespace Vavatech.TicketSystem.Models
         #endregion
 
 
+
+        public override string ToString()
+        {
+            return this.Subject;
+        }
     }
 }

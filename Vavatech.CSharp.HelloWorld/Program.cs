@@ -1,16 +1,38 @@
 ﻿using System;
+using Vavatech.TicketSystem.Models;
 
 namespace Vavatech.CSharp.HelloWorld
 {
     class Program
     {
+
         static void Main(string[] args)
         {
-            InputIntTest();
+            DateTime currentDate = DateTime.Today;
+
+            string message = "Hello";
+
+            DateTime nextDate = currentDate.AddWorkDays(14);
+
+            if (currentDate.IsHoliday())
+            {
+
+            }
+
+
+            if (DateTimeHelper.IsHoliday(currentDate))
+            {
+
+            }
+
+
+            // GenericTest();
+
+            // InputIntTest();
 
             // VariableTest();
 
-           //  InputTest();
+            //  InputTest();
 
             // HelloWorldTest();
 
@@ -19,6 +41,22 @@ namespace Vavatech.CSharp.HelloWorld
             Console.ReadKey();
         }
 
+        private static void GenericTest()
+        {
+            Printer printer = new Printer();
+            printer.Print<string>("4345443");
+
+            printer.Print<int>(100);
+
+            printer.Print(10.5);
+
+            User user = new Employee("Marcin", "Sulecki");
+
+            Ticket ticket = new Ticket("Awaria", "drukarka", user);
+
+            printer.Print(user);
+            printer.Print(ticket);
+        }
 
         static void InputIntTest()
         {

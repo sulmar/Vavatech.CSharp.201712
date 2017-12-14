@@ -14,9 +14,22 @@ namespace Vavatech.TicketSystem.ConsoleClient
 
         static void Main(string[] args)
         {
-            IList<User> users = new List<User>();
+            // ArrayTest();
+
+            List<User> users = new List<User>();
 
             var developer1 = new Developer("Marcin", "Sulecki");
+
+            users.Add(developer1);
+            users.Add(new Developer("Tomasz", "Woźniak"));
+            users.Add(new Employee("Kornel", ""));
+
+            foreach (User user in users)
+            {
+                Console.WriteLine(user.FullName);
+            }
+                
+
 
             var developerInfo = new { FirstName = developer1.FirstName, Salary = developer1.AmountPerHour };
 
@@ -33,6 +46,8 @@ namespace Vavatech.TicketSystem.ConsoleClient
             // Zadanie #1
             // Utwórz ticket na podstawie parametrów wprowadzonych przez użytkownika
 
+            List<Ticket> tickets = new List<Ticket>();
+
             do
             {
                 var ticketParameters = TicketView();
@@ -42,6 +57,9 @@ namespace Vavatech.TicketSystem.ConsoleClient
 
                 // Tworzymy ticket
                 Ticket ticket = new Ticket(ticketParameters.subject, ticketParameters.description, developer);
+
+                // Dodajemy do listy ticketów
+                tickets.Add(ticket);
 
                 // Wyświetl komunikat:
                 Display(ticket);
@@ -61,6 +79,14 @@ namespace Vavatech.TicketSystem.ConsoleClient
             while (!IsExitKey(input.KeyChar));
 
 
+            Console.WriteLine("Wprowadzone zgłoszenia:");
+
+            foreach (Ticket ticket in tickets)
+            {
+                Console.WriteLine(ticket.Subject);
+            }
+
+
             // ClassTest();
 
             Console.WriteLine();
@@ -68,6 +94,22 @@ namespace Vavatech.TicketSystem.ConsoleClient
             Console.WriteLine("Press any key to exit.");
 
             Console.ReadKey();
+        }
+
+        private static void ArrayTest()
+        {
+            int[] numbers = new int[100000];
+
+            numbers[0] = 10;
+            numbers[1] = 5;
+            numbers[3] = 2;
+
+
+            int[] happyNumbers = new int[] { 10, 5, 2 };
+
+
+
+            Console.WriteLine(numbers[2]);
         }
 
         private static void Display(Ticket ticket)

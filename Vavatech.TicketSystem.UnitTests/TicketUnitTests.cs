@@ -19,14 +19,11 @@ namespace Vavatech.TicketSystem.UnitTests
             ticket.Subject = "Nie działa mainframe";
             ticket.Description = "...";
 
-            User user = new Employee();
-            user.FirstName = "Tomasz";
-            user.LastName = "Woźniak";
+            User user = new Employee("Tomasz", "Woźniak");
 
             ticket.Author = user;
 
-            Developer developer = new Developer();
-            developer.FirstName = "Marcin";
+            Developer developer = new Developer("Marcin", "Sulecki");
 
             ticket.Owner = developer;
             ticket.CreateDate = DateTime.Now;
@@ -56,14 +53,11 @@ namespace Vavatech.TicketSystem.UnitTests
             ticket.Subject = "Nie działa mainframe";
             ticket.Description = "...";
 
-            User user = new Employee();
-            user.FirstName = "Tomasz";
-            user.LastName = "Woźniak";
+            User user = new Employee("Tomasz", "Woźniak");
 
             ticket.Author = user;
 
-            Developer developer = new Developer();
-            developer.FirstName = "Marcin";
+            Developer developer = new Developer("Marcin", "Sulecki");
 
             ticket.Owner = developer;
             ticket.CreateDate = DateTime.Now;

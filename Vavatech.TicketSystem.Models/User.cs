@@ -64,7 +64,11 @@ namespace Vavatech.TicketSystem.Models
 
         public DateTime? Birthday { get; set; }
 
-
+        public User(string firstName, string lastName)
+        {
+            this.FirstName = firstName;
+            this.LastName = lastName;
+        }
 
     }
 }

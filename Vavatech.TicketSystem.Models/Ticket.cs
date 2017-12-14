@@ -45,5 +45,19 @@ namespace Vavatech.TicketSystem.Models
             Console.WriteLine($"Subject: {Subject} - {Description}");
         }
 
+        public Ticket(string subject, string description, User author)
+            : this()
+        {
+            this.Subject = subject;
+            this.Description = description;
+            this.Author = author;
+        }
+
+        public Ticket()
+        {
+            this.CreateDate = DateTime.Now;
+            this.Status = TicketStatus.Created;
+        }
+
     }
 }

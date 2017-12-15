@@ -13,6 +13,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Vavatech.TicketSystem.UnitT
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Vavatech.TicketSystem.Logic", "Vavatech.TicketSystem.Logic\Vavatech.TicketSystem.Logic.csproj", "{6F89F985-AA06-40EA-A672-88D81C65E517}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Vavatech.TicketSystems.IServices", "Vavatech.TicketSystems.IServices\Vavatech.TicketSystems.IServices.csproj", "{263A0D65-2AE3-48F6-95EB-4A63DFC4992E}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,6 +41,10 @@ Global
 		{6F89F985-AA06-40EA-A672-88D81C65E517}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6F89F985-AA06-40EA-A672-88D81C65E517}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6F89F985-AA06-40EA-A672-88D81C65E517}.Release|Any CPU.Build.0 = Release|Any CPU
+		{263A0D65-2AE3-48F6-95EB-4A63DFC4992E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{263A0D65-2AE3-48F6-95EB-4A63DFC4992E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{263A0D65-2AE3-48F6-95EB-4A63DFC4992E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{263A0D65-2AE3-48F6-95EB-4A63DFC4992E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

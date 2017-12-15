@@ -1,10 +1,10 @@
-Temat 1; Opis 1;Marcin Sulecki
-Temat 2; Opis 2;Tomasz Woüniak
-Temat 3; Opis 3;Kornel Klimczak
-Temat 4; Opis 4;Tomasz Woüniak
-Temat 5; Opis 5;Marcin Sulecki
-Temat 6; Opis 6;Tomasz Woüniak
-Temat 7; Opis 7;Tomasz Woüniak
-Temat 8; Opis 8;Tomasz Woüniak
-Temat 9; Opis 9;Tomasz Woüniak
-Temat 10; Opis 10;Kornel Klimczak
+Temat 1; Opis 1;Marcin Sulecki;2017-05-01 10:00
+Temat 2; Opis 2;Tomasz Woüniak;2015-11-03 11:00
+Temat 3; Opis 3;Kornel Klimczak;2015-12-03 10:58
+Temat 4; Opis 4;Tomasz Woüniak;2016-12-06 23:00
+Temat 5; Opis 5;Marcin Sulecki;2017-12-07 14:00
+Temat 6; Opis 6;Tomasz Woüniak;2017-12-08 12:00
+Temat 7; Opis 7;Tomasz Woüniak;2016-12-10 10:30
+Temat 8; Opis 8;Tomasz Woüniak;2017-12-10 20:00
+Temat 9; Opis 9;Tomasz Woüniak;2016-12-11 14:00
+Temat 10; Opis 10;Kornel Klimczak;2017-12-15 11:00

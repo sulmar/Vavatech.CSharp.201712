@@ -22,6 +22,8 @@ namespace Vavatech.TicketSystem.Models
 
         public Developer Owner { get; set; }
 
+        public decimal Cost { get; set; }
+
         private TicketStatus status;
         public TicketStatus Status
         {
@@ -52,6 +54,7 @@ namespace Vavatech.TicketSystem.Models
             this.Subject = subject;
             this.Description = description;
             this.Author = author;
+            this.Cost = 100;
         }
 
         public Ticket()

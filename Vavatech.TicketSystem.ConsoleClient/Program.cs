@@ -1,10 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
+using System.Linq;
 using Vavatech.TicketSystem.Models;
+using Vavatech.TicketSystems.IServices;
 
 namespace Vavatech.TicketSystem.ConsoleClient
 {
@@ -14,10 +15,87 @@ namespace Vavatech.TicketSystem.ConsoleClient
 
         static void Main(string[] args)
         {
-            string filename = @"SampleData\tickets.txt";
+            string filename = @"SampleData\users.txt";
 
-            string content = System.IO.File.ReadAllText(filename);
+            var users = GetUsers(filename);
+            
+            string ticketsFilename = @"SampleData\tickets.txt";
 
+            //var tickets = GetTickets(ticketsFilename);
+
+            ITicketsService ticketsService = new MockTicketsService();
+
+            var tickets = ticketsService.Get();
+
+
+            // SELECT * FROM Tickets WHERE FullName = 'Marcin Sulecki' 
+            // ORDER BY Subject
+
+            #region 
+
+            var filteredTickets = new List<Ticket>();
+
+            foreach (var ticket in tickets)
+            {
+                if (ticket.Author.FullName == "Marcin Sulecki")
+                {
+                    filteredTickets.Add(ticket);
+                }
+            }
+
+            #endregion
+
+            var x = new { FirstName = "Marcin", Qty = 100 };
+
+
+
+            var totalNumber = tickets
+                .Where(t => t.Author.FullName == "Marcin Sulecki")
+                .Sum(t=>t.Cost);
+
+
+            var groupByQuery = tickets
+                .GroupBy(ticket => ticket.Author.FullName)
+                .Select(group => new { group.Key, group });
+
+            var total = groupByQuery
+                    .Select(g => new { Author = g.Key, Qty = g.group.Count() });
+
+
+            var groupByQuery2 = from ticket in tickets
+                                group ticket by ticket.Author into g
+                                select new { Author = g.Key, Tickets = g };
+
+
+            var ticketsGroupedByYear = tickets
+                    .GroupBy(ticket => ticket.CreateDate.Year)
+                    .Select(g => new { Year = g.Key, Tickets = g });
+
+
+            var filteredTicketsLambda = tickets
+                .Where(ticket => ticket.Author.FullName == "Marcin Sulecki")
+                .OrderBy(t => t.Subject)
+                .Select(t => new { t.Subject, t.CreateDate });
+
+            // linq expression
+
+            var query = from ticket in tickets
+                            join user in users  
+                                on ticket.Author.FullName equals user.FullName
+                        where ticket.Author.FullName == "Marcin Sulecki"
+                        // where ticket.CreateDate.Year == 2017
+                        orderby ticket.Subject
+                        select new { ticket, user.FirstName, };
+
+
+            var list = filteredTicketsLambda.ToList();
+
+            foreach (var item in filteredTicketsLambda)
+            {
+                Console.WriteLine(item.Subject);
+            }
+
+            Console.WriteLine();
 
             // ArrayTest();
 
@@ -31,6 +109,69 @@ namespace Vavatech.TicketSystem.ConsoleClient
             Console.WriteLine("Press any key to exit.");
 
             Console.ReadKey();
+        }
+
+        private static List<Ticket> GetTickets(string filename)
+        {
+            const byte numberOfFields = 4;
+
+            var tickets = new List<Ticket>();
+
+            string[] lines = System.IO.File.ReadAllLines(filename);
+
+            foreach (string line in lines)
+            {
+                string[] fields = line.Split(';');
+
+                if (fields.Length >= numberOfFields)
+                {
+                    string subject = fields[0];
+                    string description = fields[1];
+                    string fullname = fields[2];
+                    DateTime createDate = DateTime.Parse(fields[3]);
+
+                    string[] fieldsFullName = fullname.Split(' ');
+                    string firstName = fieldsFullName[0];
+                    string lastName = fieldsFullName[1];
+
+                    var author = new Employee(firstName, lastName);
+
+                    var ticket = new Ticket(subject, description, author)
+                    {
+                        CreateDate = createDate
+                    };
+
+                    tickets.Add(ticket);
+                }
+            }
+
+            return tickets;
+        }
+
+        private static List<User> GetUsers(string filename)
+        {
+            const byte numberOfFields = 2;
+
+            List<User> users = new List<User>();
+
+            string[] lines = System.IO.File.ReadAllLines(filename);
+
+            foreach (string line in lines)
+            {
+                string[] fields = line.Split(';');
+
+                if (fields.Length >= numberOfFields)
+                {
+                    string firstName = fields[0];
+                    string lastName = fields[1];
+
+                    var user = new Employee(firstName, lastName);
+
+                    users.Add(user);
+                }
+            }
+
+            return users;
         }
 
         private static void ManualInputTickets()

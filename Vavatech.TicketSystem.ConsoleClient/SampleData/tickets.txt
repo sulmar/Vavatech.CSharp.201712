@@ -1,0 +1,10 @@
+Temat 1; Opis 1;Marcin Sulecki
+Temat 2; Opis 2;Tomasz Woüniak
+Temat 3; Opis 3;Kornel Klimczak
+Temat 4; Opis 4;Tomasz Woüniak
+Temat 5; Opis 5;Marcin Sulecki
+Temat 6; Opis 6;Tomasz Woüniak
+Temat 7; Opis 7;Tomasz Woüniak
+Temat 8; Opis 8;Tomasz Woüniak
+Temat 9; Opis 9;Tomasz Woüniak
+Temat 10; Opis 10;Kornel Klimczak

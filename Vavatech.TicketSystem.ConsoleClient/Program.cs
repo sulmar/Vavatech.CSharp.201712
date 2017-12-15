@@ -14,8 +14,27 @@ namespace Vavatech.TicketSystem.ConsoleClient
 
         static void Main(string[] args)
         {
+            string filename = @"SampleData\tickets.txt";
+
+            string content = System.IO.File.ReadAllText(filename);
+
+
             // ArrayTest();
 
+            // ManualInputTickets();
+
+
+            // ClassTest();
+
+            Console.WriteLine();
+
+            Console.WriteLine("Press any key to exit.");
+
+            Console.ReadKey();
+        }
+
+        private static void ManualInputTickets()
+        {
             List<User> users = new List<User>();
 
             var developer1 = new Developer("Marcin", "Sulecki");
@@ -28,7 +47,7 @@ namespace Vavatech.TicketSystem.ConsoleClient
             {
                 Console.WriteLine(user.FullName);
             }
-                
+
 
 
             var developerInfo = new { FirstName = developer1.FirstName, Salary = developer1.AmountPerHour };
@@ -85,15 +104,6 @@ namespace Vavatech.TicketSystem.ConsoleClient
             {
                 Console.WriteLine(ticket.Subject);
             }
-
-
-            // ClassTest();
-
-            Console.WriteLine();
-
-            Console.WriteLine("Press any key to exit.");
-
-            Console.ReadKey();
         }
 
         private static void ArrayTest()
